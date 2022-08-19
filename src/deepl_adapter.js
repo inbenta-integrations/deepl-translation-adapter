@@ -416,6 +416,9 @@ var inbentaDeeplAdapter = function(chatbot) {
     chatbot.subscriptions.onStartConversation(function(conversationData, next) {
         if (conversationData.sessionId !== undefined && conversationData.sessionId !== '') {
             setSessionId(conversationData.sessionId);
+            if (sessionDetails.userLanguage !== '') {
+                document.getElementsByClassName('lang-selector')[0].value = sessionDetails.userLanguage.toLowerCase();
+            }
             eventListenerForSelector();
         }
     });
